@@ -1,0 +1,793 @@
+/* =========================
+   RESET / BASE
+========================= */
+.mv-details-hero {
+  min-height: 92vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.mv-details-container {
+  display: flex;
+  gap: 3.5rem;
+  width: 68%;
+}
+
+/* =========================
+   POSTER
+========================= */
+.mv-details-poster {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.mv-details-poster img {
+  width: 280px;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+}
+
+/* +18 */
+.mv-badge--adult {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+
+  background: rgba(245, 158, 11, 0.95);
+  color: #ffffff;
+
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+/* =========================
+   INFO (NO BACKGROUND!)
+========================= */
+.mv-details-info {
+
+}
+
+/* TITLE */
+.mv-details-title {
+  font-size: clamp(2.4rem, 15vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow:
+    0 2px 10px rgba(0,0,0,0.7),
+    0 8px 40px rgba(0,0,0,0.6);
+
+  margin-bottom: 0.4rem;
+}
+
+/* TAGLINE */
+.mv-details-tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1.1rem;
+}
+
+/* =========================
+   META
+========================= */
+.mv-details-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  font-size: 1.6rem;
+  color: rgba(255,255,255,0.85);
+
+  margin-bottom: 1.2rem;
+}
+
+.meta-score {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* =========================
+   GENRES
+========================= */
+.mv-details-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.genre-chip {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  color: rgba(255,255,255,0.85);
+  font-size: 1.2rem;
+}
+
+/* =========================
+   OVERVIEW
+========================= */
+.mv-details-overview {
+  font-size: 1.6rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+.mv-details-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* TRAILER */
+.btn-trailer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+
+  font-weight: 600;
+  font-size: 1.4rem;
+
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(99,102,241,0.45);
+}
+
+.btn-trailer h5{
+  font-size: 1.6rem;
+  white-space: nowrap;
+}
+.btn-trailer:hover {
+  filter: brightness(1.05);
+}
+
+/* ICON BUTTONS */
+.icon-btn {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.icon-btn.like:hover {
+  background: rgba(239,68,68,0.35);
+}
+
+.icon-btn.dislike:hover {
+  background: rgba(59,130,246,0.35);
+}
+
+/* =========================
+   PLATFORM
+========================= */
+.mv-details-platform {
+  margin-top: 1.6rem;
+}
+
+.mv-details-platform img {
+  height: 26px;
+  opacity: 0.9;
+}
+
+/* =========================
+   STATES
+========================= */
+.mv-details-loading,
+.mv-details-error {
+  padding: 6rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+
+
+/* Skeleton */
+
+
+.mv-details-hero.skeleton {
+  min-height: 90vh;
+  padding: 6rem 4rem;
+  display: flex;
+  align-items: center;
+}
+
+/* GENEL BLOK */
+.skeleton-box,
+.skeleton-line,
+.skeleton-chip,
+.skeleton-btn,
+.skeleton-overview,
+.skeleton-meta,
+.skeleton-actions,
+.skeleton-title,
+.skeleton-icon-btn,
+.skeleton-icon {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+/* POSTER */
+.skeleton-box.poster {
+  width: 300px;
+  height: 450px;
+  border-radius: 18px;
+}
+
+/* METİN */
+.skeleton-line {
+  height: 14px;
+  margin-bottom: 10px;
+}
+
+.skeleton-line.title {
+  height: 42px;
+  width: 68%;
+}
+
+.skeleton-line.tagline {
+  width: 45%;
+  opacity: 0.5;
+}
+
+.skeleton-line.small {
+  width: 70px;
+}
+
+.skeleton-line.paragraph {
+  width: 100%;
+}
+
+/* META */
+.skeleton-meta {
+  display: flex;
+  gap: 10px;
+  margin: 1rem 0;
+}
+
+/* GENRES */
+.skeleton-genres {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.4rem;
+}
+
+.skeleton-chip {
+  width: 72px;
+  height: 24px;
+  border-radius: 999px;
+}
+
+/* ACTIONS */
+.skeleton-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 1.8rem;
+}
+
+.skeleton-btn {
+  width: 150px;
+  height: 42px;
+  border-radius: 10px;
+}
+
+.skeleton-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+/* ANİMASYON */
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0.45;
+  }
+}
+
+
+
+
+
+/* CAST */
+
+.mv-cast-section {
+  position: relative;
+  padding: 2rem 0 5.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.mv-cast-container {
+  width: 90%;
+  margin: 0 auto;
+}
+.mv-cast-wrapper {
+  width: max-content;
+  max-width: 100%;
+  position: relative;
+}
+
+
+/* TITLE */
+.mv-section-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+/* =========================
+   ROW
+========================= */
+
+.mv-cast-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  
+}
+
+
+.mv-cast-row::-webkit-scrollbar {
+  display: none;
+  height: 6px;
+}
+
+.cast-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .2s ease;
+  z-index: 5;
+}
+.mv-cast-wrapper:hover{
+    background:
+    radial-gradient(90% 100% at 50% 50%, rgba(99, 101, 241, 0.205), transparent),
+    linear-gradient(to top, #000, #05060a);
+    border-radius:20px
+}
+.mv-cast-wrapper:hover .cast-nav {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+
+.cast-nav.left { left: 6px; }
+.cast-nav.right { right: 6px; }
+
+.mv-cast-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.mv-cast-card {
+  width: 160px;        
+  height: 80%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: transform 0.2s ease;
+}
+
+.mv-cast-card:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.05);
+  cursor: pointer;
+}
+
+.mv-cast-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #111;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* INFO */
+.mv-cast-info {
+  margin-top: 0.5rem;
+}
+
+.mv-cast-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: white;
+}
+
+.mv-cast-role {
+  font-size: 1.1rem;
+  opacity: 0.6;
+  color: wheat;
+  margin-top: 2px;
+}
+
+/* =========================
+   FOOTER AYRIMI
+========================= */
+
+
+
+.mv-cast-row::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.skeleton-row {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.skeleton-cast-card {
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.cast-avatar {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 14px;
+}
+
+.cast-name {
+  margin-top: 0.5rem;
+  height: 14px;
+  width: 80%;
+}
+
+.cast-role {
+  margin-top: 0.3rem;
+  height: 12px;
+  width: 60%;
+  opacity: 0.6;
+}
+
+.section-title {
+  width: 180px;
+  height: 20px;
+  margin-bottom: 1.5rem;
+}
+
+/* TRAILER */
+
+.trailer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.trailer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.trailer-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trailer-content iframe {
+  width: min(90vw, 960px);
+  height: calc(min(90vw, 960px) * 0.56);
+  border-radius: 12px;
+  border: none;
+  background: black;
+}
+
+.trailer-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+@media(max-width: 1200px){
+  .mv-cast-card{
+    width: 145px;
+  }
+}
+
+@media(max-width: 1024px) {
+  .mv-details-container {
+    gap: 2rem;
+  }
+
+  .mv-details-poster.skeleton-box.poster {
+    width: 240px;
+  }
+
+   .skeleton-cast-card {
+    width: 100px;
+  }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .mv-details-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mv-details-poster img {
+    width: 220px;
+  }
+
+  .mv-details-info {
+    max-width: 100%;
+  }
+
+  .mv-details-meta,
+  .mv-details-genres,
+  .mv-details-actions {
+    justify-content: center;
+  }
+
+  .mv-details-actions {
+    gap: 3.5rem;
+    padding: 0 auto;
+  }
+  .hero-buttons{
+    width: auto;
+  }
+    .mv-details-hero.skeleton {
+    padding: 4rem 2rem;
+    align-items: flex-start;
+  }
+
+  .mv-details-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  /* POSTER */
+  .skeleton-box.poster {
+    width: 220px;
+    height: 330px;
+  }
+
+  /* INFO BLOĞU */
+  .mv-details-info {
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+  }
+
+  /* META */
+  .skeleton-meta {
+    justify-content: center;
+  }
+
+  /* GENRES */
+  .skeleton-genres {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ACTIONS */
+  .skeleton-actions {
+    justify-content: center;
+  }
+}
+@media(max-width: 768px){
+  .cast-nav{
+    transform: translateY(-50%) scale(1.05);
+  }
+  .mv-cast-card{
+    width: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+   .mv-cast-container {
+    padding: 0 1.2rem;
+  }
+
+  .mv-section-title {
+    font-size: 1.4rem;
+  }
+
+  .mv-details-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+  }
+
+  .mv-details-poster.skeleton-box.poster {
+    width: 180px;
+    margin-bottom: 1.5rem;
+  }
+
+  .mv-details-info {
+    width: 100%;
+  }
+
+  .skeleton-line.title {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .skeleton-line.tagline {
+    width: 60%;
+    margin: 0.6rem auto;
+  }
+
+  .skeleton-meta {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .skeleton-genres {
+    justify-content: center;
+  }
+
+  .skeleton-paragraph {
+    padding: 0 1rem;
+  }
+
+  .skeleton-actions {
+    justify-content: center;
+  }
+
+  .mv-cast-container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .skeleton-row {
+    gap: 0.8rem;
+  }
+
+  .skeleton-cast-card {
+    width: 85px;
+  }
+
+  .cast-avatar {
+    border-radius: 12px;
+  }
+
+  .cast-name {
+    height: 12px;
+  }
+
+  .cast-role {
+    height: 10px;
+  }
+
+  .section-title {
+    width: 140px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .mv-cast-card{
+    width: 120px;
+  }
+  .mv-details-overview {
+    -webkit-line-clamp: 4;
+  }
+
+   .mv-details-hero.skeleton {
+    padding: 3rem 1.2rem;
+  }
+
+  /* POSTER daha kompakt */
+  .skeleton-box.poster {
+    width: 180px;
+    height: 270px;
+  }
+
+  /* TITLE */
+  .skeleton-line.title {
+    width: 85%;
+    height: 36px;
+  }
+
+  .skeleton-line.tagline {
+    width: 60%;
+  }
+
+  /* PARAGRAF daha kısa */
+  .skeleton-line.paragraph {
+    height: 13px;
+  }
+
+  /* BUTTON */
+  .skeleton-btn {
+    width: 140px;
+    height: 40px;
+  }
+
+  .skeleton-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
