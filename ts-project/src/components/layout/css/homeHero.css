@@ -1,0 +1,519 @@
+/* =========================
+   PARTICLES
+========================= */
+.particle {
+  position: fixed;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: particleFloat 0.6s ease-out forwards;
+  transform: translate(-4px, -4px);
+  z-index: 999;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 1;
+    transform: translate(-4px, -4px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+.particle:nth-child(1) {
+  --tx: 40px;
+  --ty: -40px;
+}
+
+.particle:nth-child(2) {
+  --tx: -40px;
+  --ty: -40px;
+}
+
+.particle:nth-child(3) {
+  --tx: 40px;
+  --ty: 40px;
+}
+
+.particle:nth-child(4) {
+  --tx: -40px;
+  --ty: 40px;
+}
+
+.particle:nth-child(5) {
+  --tx: 50px;
+  --ty: 0;
+}
+
+.particle:nth-child(6) {
+  --tx: -50px;
+  --ty: 0;
+}
+
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.4) 20%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.2) 80%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+ 
+  z-index: 1;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 450ms ease;
+  z-index: 0;
+  will-change: opacity;
+}
+
+
+.hero-bg.fade-out {
+  opacity: 0;
+}
+
+.hero-bg.fade-in {
+  opacity: 1;
+}
+
+/* Black fade layer */
+.hero-blackout {
+  transition: opacity 200ms ease;
+}
+
+.hero-blackout.active {
+  opacity: 1;
+}
+
+
+/* 🟢 içerik gelince */
+
+/* SOL */
+.hero-content {
+  max-width: 640px;
+  z-index: 3;
+  padding: 0 1rem;
+
+  /* DEFAULT AÇIK */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero--animate .hero-content {
+  animation: heroContentIn 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes heroContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: clamp(4rem, 6vw, 5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+/* SAĞ */
+
+.hero-mask {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vh 12vw;
+  z-index: 3;
+
+  /* DEFAULT: AÇIK */
+  transform: scaleY(1);
+}
+
+
+.hero--animate .hero-mask {
+  transform-origin: top;
+  transform: scaleY(0);
+  animation: heroMaskOpen 1500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes heroMaskOpen {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.hero-media {
+  width: 40%;
+  min-width: 350px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  opacity: 1;
+  transform: scale(1)
+ 
+}
+
+
+
+
+.hero-trailer {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  background: #000;
+}
+
+/* Fragman yoksa */
+.hero-trailer--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    ),
+    #000;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.hero-trailer-empty-content {
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 15px;
+  user-select: none;
+}
+
+.hero-trailer-empty-content .emoji {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+/* =========================
+   META
+========================= */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  font-size: 1.05rem;
+  color: #e5e5e5;
+  margin-bottom: 1.4rem;
+}
+
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rating-text {
+  color: #f5c518;
+  font-weight: 600;
+}
+
+/* =========================
+   OVERVIEW
+========================= */
+.hero-overview {
+  font-size: 1.6rem;
+  line-height: 1.75;
+  color: #e0e0e0;
+  font-weight: 600;
+  max-width: 680px;
+  margin-bottom: 2.4rem;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+.hero-actions {
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  /* keep same background, only slightly reduce opacity to preserve readability */
+  background: linear-gradient(135deg, #2563EB, #1E40AF);
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.hero-icon-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  opacity: 0.85;
+}
+
+.hero-icon-btn:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.hero-icon-btn:disabled {
+  opacity: 0.6;
+  transform: scale(1);
+}
+
+.hero-icon-btn.dislike.active {
+  color: #ffdd1b;
+}
+
+.hero-icon-btn.active {
+  opacity: 1;
+}
+
+/* Follow button specific styles: keep size consistent and use colored bg when active */
+.hero-icon-btn.following {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.hero-icon-btn.following.active {
+  color: #3B82F6;
+  transform: scale(1.1);
+}
+
+.hero-icon-btn.following:hover {
+  transform: scale(1.2)!important;
+}
+
+
+.hero--skeleton {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-bg {
+  position: absolute;
+  inset: 0;
+  background: #111;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 48px;
+  margin-bottom: 16px;
+  
+}
+
+.skeleton-meta {
+  width: 35%;
+  height: 18px;
+  margin-bottom: 20px;
+}
+
+.skeleton-overview.line {
+  width: clamp(220px, 600px, 600px);
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.skeleton-overview.short {
+  width: 55%;
+}
+
+.skeleton-btn {
+  width: 140px;
+  height: 42px;
+  margin-right: 12px;
+}
+
+.skeleton-icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.skeleton-trailer {
+  width: 100%;
+  height: 260px;
+  border-radius: 12px;
+}
+
+
+/* =========================
+   TABLET (≤ 1024px)
+========================= */
+@media (max-width: 1024px) {
+  .hero{
+    height: 70vh;
+  }
+
+  .hero-mask {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4rem;        /* ⬅️ 3rem biraz fazlaydı */
+    padding: 7rem 5vw 2rem 5vw;  /* ⬅️ yatay biraz daha dar */
+  }
+
+  .hero-media {
+    width:70%;
+    max-width: 60%;
+  }
+
+  .hero-content {
+    padding: 2rem 1rem 0 1rem;
+    max-width: 90vw;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 5vw, 4rem);
+  }
+
+  .hero-overview {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}
+
+/* =========================
+   MOBILE (≤ 768px)
+========================= */
+@media (max-width: 768px) {
+  .hero {
+    padding-bottom: 2rem;
+    height: 80vh;
+  }
+
+  .hero-media {
+    width: 70%;
+    max-width: 70%;
+  }
+
+  .hero-content{
+    padding: 3rem 2rem
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    line-height: 1.15;
+  }
+
+  .hero-mask {
+    gap: 2rem;
+    padding: 8rem 1.5rem 2rem 1.5rem;
+  }
+
+  .hero-overview {
+    font-size: 1.6rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .hero-actions {
+    flex-direction: column;   /* ⬅️ yatay → dikey */
+    gap: 3rem;
+  }
+
+  .hero-actions > button {
+    width: 100%;              /* ⬅️ taşma bitti */
+    padding: 0.85rem 1rem;
+    font-size: 1.4rem;
+    justify-content: center;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    justify-content: center;
+    gap : 2rem
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE (≤ 480px)
+========================= */
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-overview {
+    font-size: 1.4rem;
+  }
+
+  .hero-actions button {
+    font-size: 1.2rem;
+  }
+}
